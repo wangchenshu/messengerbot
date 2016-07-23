@@ -22,10 +22,10 @@ public class UserProfile {
     @JsonProperty("locale")
     private String locale;
 
-    @JsonProperty("timezone")
+    @SerializedName("timezone")
     private Integer timezone;
 
-    @JsonProperty("gender")
+    @SerializedName("gender")
     private String gender;
 
     public String getFirstName() {

@@ -61,15 +61,12 @@ public class MessageController implements Callable<Integer> {
 
                         getUserProfile(senderId, accessToken, service)
                             .subscribe(
-                                userProfile -> {
-                                    userName = userProfile.getLastName()+" "+userProfile.getFirstName();
-                                    sendTextMessage(userName, recipient, accessToken, service);
-                                }
-                               // error -> out.println("on error: " + error),
+                                userProfile -> userName = userProfile.getLastName()+" "+userProfile.getFirstName()
+                                // error -> out.println("on error: " + error),
                                 // () -> out.println("on complete")
                             );
 
-                        sendTextMessage(MessageData.sendText.get("h4"), recipient, accessToken, service);
+                        sendTextMessage("hello, " + userName, recipient, accessToken, service);
                         messageMatch.findReg(text)
                             .subscribe(isFind -> sendTextMessage(
                                 MessageData.sendText.get("register"), recipient, accessToken, service));
