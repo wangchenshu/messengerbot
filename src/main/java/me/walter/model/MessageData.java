@@ -10,6 +10,8 @@ public abstract class MessageData {
     public static final String h4Web = "http://www.hackingthursday.org/";
     public static final String h4Meetup = "http://www.meetup.com/hackingthursday/";
     public static final String h4Fb = "http://www.facebook.com/groups/hackingday/";
+    public static final String fields = "first_name,last_name,profile_pic,locale,timezone,gender";
+    public static final String urwelcome = "You are welcome.";
 
     public static final Map<String, String> imageLink = new HashMap<>();
     public static final Map<String, String> sendText = new HashMap<>();

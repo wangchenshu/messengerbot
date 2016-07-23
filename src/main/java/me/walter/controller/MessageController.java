@@ -67,6 +67,7 @@ public class MessageController implements Callable<Integer> {
                             );
 
                         sendTextMessage("hello, " + userName, recipient, accessToken, service);
+
                         messageMatch.findReg(text)
                             .subscribe(isFind -> sendTextMessage(
                                 MessageData.sendText.get("register"), recipient, accessToken, service));
@@ -91,6 +92,9 @@ public class MessageController implements Callable<Integer> {
                             .subscribe(isFind -> sendTextMessage(MessageData.h4Meetup, recipient, accessToken, service));
                         messageMatch.findWeb(text)
                             .subscribe(isFind -> sendTextMessage(MessageData.h4Web, recipient, accessToken, service));
+                        messageMatch.findThanks(text)
+                                .subscribe(isFind -> sendTextMessage(MessageData.urwelcome, recipient, accessToken, service));
+                        //findThanks
                     }
                 }
             }
@@ -114,6 +118,6 @@ public class MessageController implements Callable<Integer> {
     }
 
     public Observable<UserProfile> getUserProfile(Long userId, String accessToken, WebHookService service) {
-        return service.getUserProfile(userId, "first_name,last_name,profile_pic,locale,timezone,gender", accessToken);
+        return service.getUserProfile(userId, MessageData.fields, accessToken);
     }
 }

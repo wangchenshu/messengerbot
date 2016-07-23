@@ -21,6 +21,7 @@ public class MessageMatch {
     private Observable<String> fbOb = Observable.just("fb", "臉書");
     private Observable<String> webOb = Observable.just("web", "網站");
     private Observable<String> meetupOb = Observable.just("meetup");
+    private Observable<String> thanksOb = Observable.just("thanks", "thank you", "謝謝");
 
     public MessageMatch() {
     }
@@ -64,4 +65,10 @@ public class MessageMatch {
     public Observable<Boolean> findMeetup(String text) {
         return meetupOb.flatMap(it -> Observable.just(text.contains(it))).filter(it -> it == true);
     }
+
+    public Observable<Boolean> findThanks(String text) {
+        return thanksOb.flatMap(it -> Observable.just(text.contains(it))).filter(it -> it == true);
+    }
+
+    //thanksOb
 }
