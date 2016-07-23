@@ -23,11 +23,9 @@ import static spark.Spark.*;
  */
 public class MessageController implements Callable<Integer> {
     private Request req;
-    private Response res;
 
-    public MessageController(Request req, Response res) {
+    public MessageController(Request req) {
         this.req = req;
-        this.res = res;
     }
 
     public Integer call() {
@@ -67,6 +65,7 @@ public class MessageController implements Callable<Integer> {
                                 //() -> out.println("on complete")
                             );
 
+                        sendTextMessage(MessageData.sendText.get("h4"), recipient, accessToken, service);
                         messageMatch.findReg(text)
                             .subscribe(isFind -> sendTextMessage(
                                 MessageData.sendText.get("register"), recipient, accessToken, service));
