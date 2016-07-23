@@ -1,26 +1,42 @@
 /**
  * Created by chenshuwang on 2016/7/19.
  */
+import javafx.beans.Observable;
+import me.walter.controller.MessageController;
 import me.walter.model.PropertiesCache;
+import spark.Response;
+
+import java.util.concurrent.*;
 
 import static spark.Spark.*;
 
+import static java.lang.System.out;
+
 public class App {
     public static void main(String[] args) {
-        System.out.println("port: " + PropertiesCache.getInstance().getProperty("port"));
-        System.out.println("messengerUrl: " + PropertiesCache.getInstance().getProperty("messengerUrl"));
-        System.out.println("names: " + PropertiesCache.getInstance().getAllPropertyNames());
+        port(3000);
 
-        before((request, response) -> {
-            boolean authenticated;
-            // ... check if authenticated
-            if (!true) {
-                halt(401, "You are not welcome here");
+        get("/webhook", (req, res) -> {
+            String verifyToken = PropertiesCache.getInstance().getProperty("verifyToken2");
+            String hubVerifyToken = req.queryParams("hub.verify_token");
+
+            if (verifyToken.equals(hubVerifyToken)) {
+                res.status(200);
+                return req.queryParams("hub.challenge");
+            } else {
+                res.status(403);
+                out.println("Error, wrong validation token");
             }
+            return "";
         });
 
-        get("/hello/:name", (request, response) -> {
-            return "Hello: " + request.params(":name");
+        post("/webhook", (req, res) -> {
+            ExecutorService threadPool = Executors.newCachedThreadPool();
+            CompletionService<Integer> completionService = new ExecutorCompletionService<>(threadPool);
+            completionService.submit(new MessageController(req, res));
+            completionService.take().get();
+            res.status(200);
+            return "";
         });
     }
 }
