@@ -1,6 +1,7 @@
 package me.walter.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import lombok.experimental.Accessors;
 
 /**
@@ -9,13 +10,13 @@ import lombok.experimental.Accessors;
 @Accessors(chain=true)
 public class UserProfile {
 
-    @JsonProperty("first_name")
+    @SerializedName("first_name")
     private String firstName;
 
-    @JsonProperty("last_name")
+    @SerializedName("last_name")
     private String lastName;
 
-    @JsonProperty("profile_pic")
+    @SerializedName("profile_pic")
     private String profilePic;
 
     @JsonProperty("locale")

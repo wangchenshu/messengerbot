@@ -23,6 +23,7 @@ import static spark.Spark.*;
  */
 public class MessageController implements Callable<Integer> {
     private Request req;
+    private String userName;
 
     public MessageController(Request req) {
         this.req = req;
@@ -60,9 +61,12 @@ public class MessageController implements Callable<Integer> {
 
                         getUserProfile(senderId, accessToken, service)
                             .subscribe(
-                                userProfile -> out.println("userProfile: " + userProfile)
+                                userProfile -> {
+                                    userName = userProfile.getLastName()+" "+userProfile.getFirstName();
+                                    sendTextMessage(userName, recipient, accessToken, service);
+                                }
                                // error -> out.println("on error: " + error),
-                                //() -> out.println("on complete")
+                                // () -> out.println("on complete")
                             );
 
                         sendTextMessage(MessageData.sendText.get("h4"), recipient, accessToken, service);
