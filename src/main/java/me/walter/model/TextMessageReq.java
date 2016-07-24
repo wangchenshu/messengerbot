@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Created by chenshuwang on 2016/7/23.
  */
 public class TextMessageReq {
+
     @JsonProperty("text")
     private String text;
 

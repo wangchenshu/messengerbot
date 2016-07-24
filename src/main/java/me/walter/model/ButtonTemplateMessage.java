@@ -3,17 +3,16 @@ package me.walter.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Created by chenshuwang on 2016/7/23.
+ * Created by chenshuwang on 2016/7/24.
  */
-public class TextMessage {
-
+public class ButtonTemplateMessage {
     @JsonProperty("sender")
     private Recipient recipient;
 
     @JsonProperty("message")
-    private TextMessageReq message;
+    private ButtonTemplateMessageReq message;
 
-    public TextMessage(Recipient recipient, TextMessageReq message) {
+    public ButtonTemplateMessage(Recipient recipient, ButtonTemplateMessageReq message) {
         this.recipient = recipient;
         this.message = message;
     }
@@ -22,7 +21,7 @@ public class TextMessage {
         return recipient;
     }
 
-    public TextMessageReq getMessage() {
+    public ButtonTemplateMessageReq getMessage() {
         return message;
     }
 
@@ -30,7 +29,7 @@ public class TextMessage {
         this.recipient = recipient;
     }
 
-    public void setMessage(TextMessageReq message) {
+    public void setMessage(ButtonTemplateMessageReq message) {
         this.message = message;
     }
 
