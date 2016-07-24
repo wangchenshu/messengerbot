@@ -6,14 +6,6 @@ import java.util.*;
  * Created by chenshuwang on 2016/7/22.
  */
 public abstract class MessageData {
-    public enum MessageType {
-        TEXT,
-        IMAGE,
-        VIDEO,
-        BUTTON,
-        GENERIC,
-        RECEIPT
-    }
 
     public static final String h4Web = "http://www.hackingthursday.org/";
     public static final String h4Meetup = "http://www.meetup.com/hackingthursday/";
@@ -31,12 +23,13 @@ public abstract class MessageData {
         imageLink.put("baobao", "https://firebasestorage.googleapis.com/v0/b/walter-bot-a2142.appspot.com/o/line-bot%2Fimage%2Fother%2Fiyiy.jpg?alt=media&token=1d0dfd87-d61a-48d5-8ea0-0bd86c9b9458");
         imageLink.put("fb-good", "https://firebasestorage.googleapis.com/v0/b/walter-bot-a2142.appspot.com/o/line-bot%2Fimage%2Fother%2Ffb-good.png?alt=media&token=52fde993-26a0-4872-bbc7-eb78933cf470");
 
-        sellImageLink.put("bmw-1",
-            Arrays.asList("https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13769403_10205405842380304_8743949122007861785_n.jpg?oh=0510dede4eb9bb81ee816994d84c81c1&oe=58336210",
-                "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13718792_10205405842140298_5820858600731320831_n.jpg?oh=c6563c74d7aedb19421e8d4aed77f724&oe=58303E51",
-                "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13775433_10205405841820290_1699949512850865065_n.jpg?oh=be7bc4ae3773a751eb2d035eb4c6304d&oe=582625E9",
-                "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13718678_10205405840020245_8815298939544909893_n.jpg?oh=a979223067428ccf00714527799b344f&oe=581B427A",
-                "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13776051_10205405839580234_7205627092120717186_n.jpg?oh=297b0a7ca520f17cc72eb374c93dd812&oe=5824560B"));
+        sellImageLink.put("bmw-1", Arrays.asList(
+            "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13769403_10205405842380304_8743949122007861785_n.jpg?oh=0510dede4eb9bb81ee816994d84c81c1&oe=58336210",
+            "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13718792_10205405842140298_5820858600731320831_n.jpg?oh=c6563c74d7aedb19421e8d4aed77f724&oe=58303E51",
+            "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13775433_10205405841820290_1699949512850865065_n.jpg?oh=be7bc4ae3773a751eb2d035eb4c6304d&oe=582625E9",
+            "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13718678_10205405840020245_8815298939544909893_n.jpg?oh=a979223067428ccf00714527799b344f&oe=581B427A",
+            "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13776051_10205405839580234_7205627092120717186_n.jpg?oh=297b0a7ca520f17cc72eb374c93dd812&oe=5824560B")
+        );
 
         // sendText
         sendText.put("default", "Welcome to h4!");

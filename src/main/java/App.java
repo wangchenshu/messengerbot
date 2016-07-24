@@ -1,12 +1,9 @@
 /**
  * Created by chenshuwang on 2016/7/19.
  */
-import javafx.beans.Observable;
 import me.walter.controller.MessageController;
 import me.walter.model.PropertiesCache;
 import spark.Response;
-
-import java.util.concurrent.*;
 
 import static spark.Spark.*;
 

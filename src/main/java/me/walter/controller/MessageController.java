@@ -2,7 +2,6 @@ package me.walter.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.cfg.PackageVersion;
 import me.walter.model.*;
 import me.walter.service.WebHookService;
 import retrofit2.Retrofit;
@@ -13,7 +12,6 @@ import spark.Request;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.concurrent.ExecutionException;
 
 import static java.lang.System.out;
 
@@ -33,16 +31,15 @@ public class MessageController {
         String accessToken = PropertiesCache.getInstance().getProperty("accessToken");
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .build();
+            .baseUrl(baseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+            .build();
         WebHookService service = retrofit.create(WebHookService.class);
 
         try {
             JsonNode rootNode = mapper.readTree(req.body());
             JsonNode entryNodes = rootNode.get("entry");
-            //String object = rootNode.get("object").textValue();
 
             if (entryNodes.isArray()) {
                 for(JsonNode entryNode : entryNodes) {
@@ -55,7 +52,6 @@ public class MessageController {
                         Recipient recipient = new Recipient();
                         recipient.setId(senderId);
                         userProfile_p = new UserProfile();
-                        //out.println(messaging);
 
                         if (messaging.geMessage().getAttachments() != null) {
                             MessageRes messageRes = messaging.geMessage();
@@ -76,13 +72,7 @@ public class MessageController {
                             String text = messaging.geMessage().getText();
                             MessageMatch messageMatch = new MessageMatch();
 
-                            getUserProfile(senderId, accessToken, service)
-                                .subscribe(
-                                    userProfile -> userProfile_p = userProfile
-                                    //error -> out.println("(getUserProfile) on error: " + error),
-                                    //() -> {}
-                                );
-
+                            getUserProfile(senderId, accessToken, service).subscribe(userProfile -> userProfile_p = userProfile);
                             String userName = userProfile_p.getFirstName() + " " + userProfile_p.getLastName();
 
                             if (messageMatch.findContact(text)) {
@@ -171,8 +161,7 @@ public class MessageController {
         TextMessageReq textMessageReq = new TextMessageReq(sendText);
         TextMessage textMessage = new TextMessage(recipient, textMessageReq);
 
-        Observable<Void> resText = service.sendTextMessage(accessToken, textMessage);
-        resText.subscribe();
+        service.sendTextMessage(accessToken, textMessage).subscribe();
     }
 
     private void sendAttachmentMessage(String type, Payload payload, Recipient recipient, String accessToken, WebHookService service) {
@@ -183,8 +172,7 @@ public class MessageController {
         AttachmentMessageReq attachmentMessageReq = new AttachmentMessageReq(attachment);
         AttachmentMessage attachmentMessage = new AttachmentMessage(recipient, attachmentMessageReq);
 
-        Observable<Void> resText = service.sendAttachmentMessage(accessToken, attachmentMessage);
-        resText.subscribe();
+        service.sendAttachmentMessage(accessToken, attachmentMessage).subscribe();
     }
 
     private void sendAttachmentsMessage(Observable<Attachment> attachmentObservable, Recipient recipient, String accessToken, WebHookService service) {
@@ -192,8 +180,7 @@ public class MessageController {
             AttachmentMessageReq attachmentMessageReq = new AttachmentMessageReq(attachment);
             AttachmentMessage attachmentMessage = new AttachmentMessage(recipient, attachmentMessageReq);
 
-            Observable<Void> resText = service.sendAttachmentMessage(accessToken, attachmentMessage);
-            resText.subscribe();
+            service.sendAttachmentMessage(accessToken, attachmentMessage).subscribe();
         });
 
     }
@@ -206,8 +193,7 @@ public class MessageController {
         ButtonTemplateMessageReq buttonTemplateMessageReq = new ButtonTemplateMessageReq(attachment);
         ButtonTemplateMessage buttonTemplateMessage = new ButtonTemplateMessage(recipient, buttonTemplateMessageReq);
 
-        Observable<Void> resText = service.sendButtonTemplateMessage(accessToken, buttonTemplateMessage);
-        resText.subscribe();
+        service.sendButtonTemplateMessage(accessToken, buttonTemplateMessage).subscribe();
     }
 
     private Observable<UserProfile> getUserProfile(Long userId, String accessToken, WebHookService service) {
