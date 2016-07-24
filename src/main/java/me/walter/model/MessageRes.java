@@ -1,14 +1,16 @@
 package me.walter.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.experimental.Accessors;
+
+import java.util.List;
 
 /**
  * Created by chenshuwang on 2016/7/22.
  */
 @Accessors(chain=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MessageRes {
 
     @JsonProperty("mid")
@@ -19,6 +21,12 @@ public class MessageRes {
 
     @JsonProperty("text")
     private String text;
+
+    @JsonProperty("sticker_id")
+    private Long stickerId;
+
+    @JsonProperty("attachments")
+    private List<Attachment> attachments;
 
     public String getMid() {
         return mid;
@@ -32,9 +40,15 @@ public class MessageRes {
         return text;
     }
 
+    public Long getStickerId() { return stickerId; }
+
+    public List<Attachment> getAttachments() { return attachments; }
+
     @Override
     public String toString() {
-        return String.format("mid: %s, seq: %s, text: %s", getMid(), getSeq(), getText());
+        return String.format(
+            "mid: %s, seq: %s, text: %s, stickerId: %s, attachments: %s",
+            getMid(), getSeq(), getText(), getStickerId(), getAttachments());
     }
 }
 

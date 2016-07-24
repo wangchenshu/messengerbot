@@ -1,8 +1,8 @@
 package me.walter.service;
 
-import me.walter.model.TextMessageRequest;
+import me.walter.model.AttachmentMessage;
+import me.walter.model.TextMessage;
 import me.walter.model.UserProfile;
-import retrofit2.Call;
 import retrofit2.http.*;
 import rx.Observable;
 
@@ -13,7 +13,13 @@ public interface WebHookService {
     @POST("me/messages/")
     Observable<Void> sendTextMessage(
         @Query("access_token") String accessToken,
-        @Body TextMessageRequest textMessageRequest
+        @Body TextMessage textMessage
+    );
+
+    @POST("me/messages/")
+    Observable<Void> sendAttachmentMessage(
+        @Query("access_token") String accessToken,
+        @Body AttachmentMessage attachmentMessage
     );
 
     @GET("{userId}")

@@ -7,6 +7,15 @@ import java.util.Map;
  * Created by chenshuwang on 2016/7/22.
  */
 public abstract class MessageData {
+    public enum MessageType {
+        TEXT,
+        IMAGE,
+        VIDEO,
+        BUTTON,
+        GENERIC,
+        RECEIPT
+    }
+
     public static final String h4Web = "http://www.hackingthursday.org/";
     public static final String h4Meetup = "http://www.meetup.com/hackingthursday/";
     public static final String h4Fb = "http://www.facebook.com/groups/hackingday/";

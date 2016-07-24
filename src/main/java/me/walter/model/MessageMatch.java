@@ -6,69 +6,81 @@ import rx.Observer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * Created by chenshuwang on 2016/7/23.
  */
 public class MessageMatch {
-    private Observable<String> regOb = Observable.just("register", "報到", "簽到");
-    private Observable<String> baoOb = Observable.just("baobao", "抱抱");
-    private Observable<String> contactOb = Observable.just("contact", "找", "聯絡", "連絡");
-    private Observable<String> beginOb = Observable.just("由來", "beginning", "開始");
-    private Observable<String> goOb = Observable.just("go", "to", "去", "走");
-    private Observable<String> doOb = Observable.just("do", "做");
-    private Observable<String> whatOb = Observable.just("這啥", "這是什");
-    private Observable<String> fbOb = Observable.just("fb", "臉書");
-    private Observable<String> webOb = Observable.just("web", "網站");
-    private Observable<String> meetupOb = Observable.just("meetup");
-    private Observable<String> thanksOb = Observable.just("thanks", "thank you", "謝謝");
+    private List<String> regOb = Arrays.asList("register", "報到", "簽到");
+    private List<String> baoOb = Arrays.asList("baobao", "抱抱");
+    private List<String> contactOb = Arrays.asList("contact", "找", "聯絡", "連絡");
+    private List<String> beginOb = Arrays.asList("由來", "beginning", "開始");
+    private List<String> goOb = Arrays.asList("go", "to", "去", "走");
+    private List<String> doOb = Arrays.asList("do", "做");
+    private List<String> whatOb = Arrays.asList("這啥", "這是什");
+    private List<String> fbOb = Arrays.asList("fb", "臉書");
+    private List<String> webOb = Arrays.asList("web", "網站");
+    private List<String> meetupOb = Arrays.asList("meetup");
+    private List<String> thanksOb = Arrays.asList("thanks", "thank you", "謝謝");
 
     public MessageMatch() {
     }
 
-    public Observable<Boolean> findReg(String text) {
-        return regOb.flatMap(it -> Observable.just(text.contains(it))).filter(it -> it == true);
+    public Boolean findReg(String text) {
+        return find(text, regOb);
     }
 
-    public Observable<Boolean> findBao(String text) {
-        return baoOb.flatMap(it -> Observable.just(text.contains(it))).filter(it -> it == true);
+    public Boolean findBao(String text) {
+        return find(text, baoOb);
     }
 
-    public Observable<Boolean> findContact(String text) {
-        return contactOb.flatMap(it -> Observable.just(text.contains(it))).filter(it -> it == true);
+    public Boolean findContact(String text) {
+        return find(text, contactOb);
     }
 
-    public Observable<Boolean> findBegin(String text) {
-        return beginOb.flatMap(it -> Observable.just(text.contains(it))).filter(it -> it == true);
+    public Boolean findBegin(String text) {
+        return find(text, beginOb);
     }
 
-    public Observable<Boolean> findGo(String text) {
-        return goOb.flatMap(it -> Observable.just(text.contains(it))).filter(it -> it == true);
+    public Boolean findGo(String text) {
+        return find(text, goOb);
     }
 
-    public Observable<Boolean> findDo(String text) {
-        return doOb.flatMap(it -> Observable.just(text.contains(it))).filter(it -> it == true);
+    public Boolean findDo(String text) {
+        return find(text, doOb);
     }
 
-    public Observable<Boolean> findWhat(String text) {
-        return whatOb.flatMap(it -> Observable.just(text.contains(it))).filter(it -> it == true);
+    public Boolean findWhat(String text) {
+        return find(text, whatOb);
     }
 
-    public Observable<Boolean> findFb(String text) {
-        return fbOb.flatMap(it -> Observable.just(text.contains(it))).filter(it -> it == true);
+    public Boolean findFb(String text) {
+        return find(text, fbOb);
     }
 
-    public Observable<Boolean> findWeb(String text) {
-        return webOb.flatMap(it -> Observable.just(text.contains(it))).filter(it -> it == true);
+    public Boolean findWeb(String text) {
+        return find(text, webOb);
     }
 
-    public Observable<Boolean> findMeetup(String text) {
-        return meetupOb.flatMap(it -> Observable.just(text.contains(it))).filter(it -> it == true);
+    public Boolean findMeetup(String text) {
+        return find(text, meetupOb);
     }
 
-    public Observable<Boolean> findThanks(String text) {
-        return thanksOb.flatMap(it -> Observable.just(text.contains(it))).filter(it -> it == true);
+    public Boolean findThanks(String text) {
+        return find(text, thanksOb);
     }
 
-    //thanksOb
+    private Boolean find(String text, List<String> list) {
+        final Boolean[] isFind = new Boolean[]{false};
+
+        for (String s : list) {
+            if (text.contains(s)) {
+                isFind[0] = true;
+                break;
+            }
+        }
+
+        return isFind[0];
+    }
 }

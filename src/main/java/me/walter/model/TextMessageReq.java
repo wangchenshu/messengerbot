@@ -5,11 +5,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Created by chenshuwang on 2016/7/23.
  */
-public class MessageReq {
+public class TextMessageReq {
     @JsonProperty("text")
     private String text;
 
-    public MessageReq(String text) {
+    public TextMessageReq(String text) {
         this.text = text;
     }
 

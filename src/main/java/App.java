@@ -31,11 +31,8 @@ public class App {
         });
 
         post("/webhook", (req, res) -> {
-            ExecutorService threadPool = Executors.newCachedThreadPool();
-            CompletionService<Integer> completionService = new ExecutorCompletionService<>(threadPool);
-            completionService.submit(new MessageController(req));
-            completionService.take().get();
-            res.status(200);
+            int resStatus = new MessageController().process(req);
+            res.status(resStatus);
             return "";
         });
     }
