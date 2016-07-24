@@ -122,14 +122,23 @@ public class MessageController {
                             }
 
                             if (messageMatch.findBao(text)) {
-                                Attachment attachment = new Attachment();
-                                Payload payload = new Payload();
-                                payload.setUrl(MessageData.imageLink.get("baobao"));
-
-                                attachment.setType("image");
-                                attachment.setPayload(payload);
+                                Attachment attachment = createAttachment(MessageData.imageLink.get("baobao"));
                                 sendAttachmentMessage(attachment.getType(), attachment.getPayload(), recipient, accessToken, service);
                             }
+
+                            if (messageMatch.findBmw(text)) {
+                                List<String> urls = MessageData.sellImageLink.get("bmw-1");
+                                List<Attachment> attachments = new ArrayList<>(urls.size());
+
+                                for (String url : urls) {
+                                    Attachment attachment1 = createAttachment(url);
+                                    attachments.add(attachment1);
+                                }
+
+                                Observable<Attachment> attachmentObservable = Observable.from(attachments);
+                                sendAttachmentsMessage(attachmentObservable, recipient, accessToken, service);
+                            }
+
                             if (messageMatch.findReg(text)) {
                                 sendTextMessage(
                                     userName + " " + MessageData.sendText.get("register"),
@@ -163,11 +172,7 @@ public class MessageController {
         TextMessage textMessage = new TextMessage(recipient, textMessageReq);
 
         Observable<Void> resText = service.sendTextMessage(accessToken, textMessage);
-        resText.subscribe(
-            (it) -> out.println()
-            //error -> out.println("(sendTextMessage) on error: " + error),
-            //() -> out.println("(sendTextMessage) on complete")
-        );
+        resText.subscribe();
     }
 
     private void sendAttachmentMessage(String type, Payload payload, Recipient recipient, String accessToken, WebHookService service) {
@@ -179,11 +184,18 @@ public class MessageController {
         AttachmentMessage attachmentMessage = new AttachmentMessage(recipient, attachmentMessageReq);
 
         Observable<Void> resText = service.sendAttachmentMessage(accessToken, attachmentMessage);
-        resText.subscribe(
-            (it) -> out.println()
-            //error -> out.println("(sendTextMessage) on error: " + error),
-            //() -> out.println("(sendTextMessage) on complete")
-        );
+        resText.subscribe();
+    }
+
+    private void sendAttachmentsMessage(Observable<Attachment> attachmentObservable, Recipient recipient, String accessToken, WebHookService service) {
+        attachmentObservable.subscribe(attachment -> {
+            AttachmentMessageReq attachmentMessageReq = new AttachmentMessageReq(attachment);
+            AttachmentMessage attachmentMessage = new AttachmentMessage(recipient, attachmentMessageReq);
+
+            Observable<Void> resText = service.sendAttachmentMessage(accessToken, attachmentMessage);
+            resText.subscribe();
+        });
+
     }
 
     private void sendButtonTemplateMessage(String type, TemplatePayload payload, Recipient recipient, String accessToken, WebHookService service) {
@@ -195,11 +207,7 @@ public class MessageController {
         ButtonTemplateMessage buttonTemplateMessage = new ButtonTemplateMessage(recipient, buttonTemplateMessageReq);
 
         Observable<Void> resText = service.sendButtonTemplateMessage(accessToken, buttonTemplateMessage);
-        resText.subscribe(
-            (it) -> out.println()
-            //error -> out.println("(sendTextMessage) on error: " + error),
-            //() -> out.println("(sendTextMessage) on complete")
-        );
+        resText.subscribe();
     }
 
     private Observable<UserProfile> getUserProfile(Long userId, String accessToken, WebHookService service) {
@@ -234,5 +242,16 @@ public class MessageController {
         }
 
         return templateButtons;
+    }
+
+    private Attachment createAttachment(String url) {
+        Attachment attachment = new Attachment();
+        Payload payload = new Payload();
+        payload.setUrl(url);
+
+        attachment.setType("image");
+        attachment.setPayload(payload);
+
+        return attachment;
     }
 }

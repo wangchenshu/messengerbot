@@ -23,6 +23,7 @@ public class MessageMatch {
     private List<String> webOb = Arrays.asList("web", "網站");
     private List<String> meetupOb = Arrays.asList("meetup");
     private List<String> thanksOb = Arrays.asList("thanks", "thank you", "謝謝");
+    private List<String> bmwOb = Arrays.asList("bmw", "米漿");
 
     public MessageMatch() {
     }
@@ -69,6 +70,10 @@ public class MessageMatch {
 
     public Boolean findThanks(String text) {
         return find(text, thanksOb);
+    }
+
+    public Boolean findBmw(String text) {
+        return find(text, bmwOb);
     }
 
     private Boolean find(String text, List<String> list) {
