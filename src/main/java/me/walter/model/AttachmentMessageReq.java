@@ -1,24 +1,20 @@
 package me.walter.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Created by chenshuwang on 2016/7/24.
  */
 public class AttachmentMessageReq {
 
-    @JsonProperty("attachment")
+    @Getter
+    @Setter
+    @SerializedName("attachment")
     private Attachment attachment;
 
     public AttachmentMessageReq(Attachment attachment) {
         this.attachment = attachment;
-    }
-
-    public void setAttachment(Attachment attachment) {
-        this.attachment = attachment;
-    }
-
-    public Attachment getAttachment() {
-        return attachment;
     }
 }

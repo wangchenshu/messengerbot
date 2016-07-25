@@ -1,6 +1,8 @@
 package me.walter.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 
 /**
@@ -9,15 +11,13 @@ import lombok.experimental.Accessors;
 @Accessors(chain=true)
 public class Payload {
 
-    @JsonProperty("url")
+    @Getter
+    @Setter
+    @SerializedName("url")
     private String url;
-
-    public String getUrl() { return url; }
-
-    public void setUrl(String url) { this.url = url; }
 
     @Override
     public String toString() {
-        return String.format("url: %s", getUrl());
+        return new StringBuffer().append("url: " + getUrl()).toString();
     }
 }

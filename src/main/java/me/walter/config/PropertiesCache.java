@@ -1,14 +1,14 @@
-package me.walter.model;
+package me.walter.config;
+
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
-
 /**
- * Created by chenshuwang on 2016/7/21.
+ * Created by chenshuwang on 2016/7/25.
  */
 public class PropertiesCache {
     private final Properties configProp = new Properties();

@@ -2,7 +2,10 @@ package me.walter.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.inject.Inject;
+import me.walter.config.PropertiesCache;
 import me.walter.model.*;
+import me.walter.operation.ImageOperation;
 import me.walter.service.WebHookService;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -21,6 +24,9 @@ import static java.lang.System.out;
 public class MessageController {
     private UserProfile userProfile_p;
     private static final int OK = 200;
+
+    //@Inject
+    //PropertiesCache propertiesCache;
 
     public MessageController() {
     }
@@ -53,8 +59,8 @@ public class MessageController {
                         recipient.setId(senderId);
                         userProfile_p = new UserProfile();
 
-                        if (messaging.geMessage().getAttachments() != null) {
-                            MessageRes messageRes = messaging.geMessage();
+                        if (messaging.getMessage().getAttachments() != null) {
+                            MessageRes messageRes = messaging.getMessage();
                             List<Attachment> attachments = messageRes.getAttachments();
 
                             for (Attachment attachment : attachments) {
@@ -69,7 +75,7 @@ public class MessageController {
                                 }
                             }
                         } else {
-                            String text = messaging.geMessage().getText();
+                            String text = messaging.getMessage().getText();
                             MessageMatch messageMatch = new MessageMatch();
 
                             getUserProfile(senderId, accessToken, service).subscribe(userProfile -> userProfile_p = userProfile);
@@ -112,20 +118,13 @@ public class MessageController {
                             }
 
                             if (messageMatch.findBao(text)) {
-                                Attachment attachment = createAttachment(MessageData.imageLink.get("baobao"));
+                                Attachment attachment = new ImageOperation().createAttachment(MessageData.imageLink.get("baobao"));
                                 sendAttachmentMessage(attachment.getType(), attachment.getPayload(), recipient, accessToken, service);
                             }
 
                             if (messageMatch.findBmw(text)) {
-                                List<String> urls = MessageData.sellImageLink.get("bmw-1");
-                                List<Attachment> attachments = new ArrayList<>(urls.size());
-
-                                for (String url : urls) {
-                                    Attachment attachment1 = createAttachment(url);
-                                    attachments.add(attachment1);
-                                }
-
-                                Observable<Attachment> attachmentObservable = Observable.from(attachments);
+                                Observable<Attachment> attachmentObservable = new ImageOperation()
+                                    .getAttachmentByImageUrls(MessageData.sellImageLink.get("bmw-1"));
                                 sendAttachmentsMessage(attachmentObservable, recipient, accessToken, service);
                             }
 
@@ -193,7 +192,10 @@ public class MessageController {
         ButtonTemplateMessageReq buttonTemplateMessageReq = new ButtonTemplateMessageReq(attachment);
         ButtonTemplateMessage buttonTemplateMessage = new ButtonTemplateMessage(recipient, buttonTemplateMessageReq);
 
-        service.sendButtonTemplateMessage(accessToken, buttonTemplateMessage).subscribe();
+        service.sendButtonTemplateMessage(accessToken, buttonTemplateMessage).subscribe(
+                it -> out.println(),
+                error -> out.println("on error: " + error)
+        );
     }
 
     private Observable<UserProfile> getUserProfile(Long userId, String accessToken, WebHookService service) {
@@ -228,16 +230,5 @@ public class MessageController {
         }
 
         return templateButtons;
-    }
-
-    private Attachment createAttachment(String url) {
-        Attachment attachment = new Attachment();
-        Payload payload = new Payload();
-        payload.setUrl(url);
-
-        attachment.setType("image");
-        attachment.setPayload(payload);
-
-        return attachment;
     }
 }

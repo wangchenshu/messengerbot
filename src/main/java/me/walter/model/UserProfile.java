@@ -1,7 +1,8 @@
 package me.walter.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 
 /**
@@ -10,51 +11,44 @@ import lombok.experimental.Accessors;
 @Accessors(chain=true)
 public class UserProfile {
 
+    @Getter
+    @Setter
     @SerializedName("first_name")
     private String firstName;
 
+    @Getter
+    @Setter
     @SerializedName("last_name")
     private String lastName;
 
+    @Getter
+    @Setter
     @SerializedName("profile_pic")
     private String profilePic;
 
-    @JsonProperty("locale")
+    @Getter
+    @Setter
+    @SerializedName("locale")
     private String locale;
 
+    @Getter
+    @Setter
     @SerializedName("timezone")
     private Integer timezone;
 
+    @Getter
+    @Setter
     @SerializedName("gender")
     private String gender;
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getProfilePic() {
-        return profilePic;
-    }
-
-    public String getLocale() {
-        return locale;
-    }
-
-    public Integer getTimezone() {
-        return timezone;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
     @Override
     public String toString() {
-        return String.format("firstName: %s, lastName: %s, profilePic: %s, locale: %s, timezone: %d, gender: %s",
-                getFirstName(), getLastName(), getProfilePic(), getLocale(), getTimezone(), getGender());
+        return new StringBuffer()
+            .append("firstName: " + getFirstName())
+            .append("lastName: " + getLastName())
+            .append("profilePic: " + getProfilePic())
+            .append("locale: " + getLocale())
+            .append("timezone: " + getTimezone())
+            .append("gender: " + getGender()).toString();
     }
 }

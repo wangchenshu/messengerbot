@@ -1,7 +1,6 @@
 package me.walter.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AccessLevel;
+import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -14,22 +13,20 @@ import java.util.List;
 @Accessors(chain=true)
 public class WebHookRequest {
 
-    @JsonProperty("object")
+    @Getter
+    @Setter
+    @SerializedName("object")
     private String object;
 
-    @JsonProperty("entry")
+    @Getter
+    @Setter
+    @SerializedName("entry")
     private List<Entry> entry;
-
-    public String getObject() {
-        return object;
-    }
-
-    public List<Entry> getEntry() {
-        return entry;
-    }
 
     @Override
     public String toString() {
-        return String.format("object: %s, entry: %s", getObject(), getEntry());
+        return new StringBuffer()
+                .append("object: " + getObject())
+                .append("entry: " + getEntry()).toString();
     }
 }

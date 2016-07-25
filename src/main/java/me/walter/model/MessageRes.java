@@ -1,7 +1,9 @@
 package me.walter.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -13,42 +15,39 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MessageRes {
 
-    @JsonProperty("mid")
+    @Getter
+    @Setter
+    @SerializedName("mid")
     private String mid;
 
-    @JsonProperty("seq")
+    @Getter
+    @Setter
+    @SerializedName("seq")
     private Integer seq;
 
-    @JsonProperty("text")
+    @Getter
+    @Setter
+    @SerializedName("text")
     private String text;
 
-    @JsonProperty("sticker_id")
+    @Getter
+    @Setter
+    @SerializedName("sticker_id")
     private Long stickerId;
 
-    @JsonProperty("attachments")
+    @Getter
+    @Setter
+    @SerializedName("attachments")
     private List<Attachment> attachments;
-
-    public String getMid() {
-        return mid;
-    }
-
-    public Integer getSeq() {
-        return seq;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public Long getStickerId() { return stickerId; }
-
-    public List<Attachment> getAttachments() { return attachments; }
 
     @Override
     public String toString() {
-        return String.format(
-            "mid: %s, seq: %s, text: %s, stickerId: %s, attachments: %s",
-            getMid(), getSeq(), getText(), getStickerId(), getAttachments());
+        return new StringBuffer()
+            .append("mid: " + getMid())
+            .append("seq: " + getSeq())
+            .append("text: " + getText())
+            .append("stickerId: " + getStickerId())
+            .append("attachments: " + getAttachments()).toString();
     }
 }
 

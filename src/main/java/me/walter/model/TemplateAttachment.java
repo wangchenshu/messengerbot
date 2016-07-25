@@ -1,6 +1,8 @@
 package me.walter.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 
 /**
@@ -9,30 +11,20 @@ import lombok.experimental.Accessors;
 @Accessors(chain=true)
 public class TemplateAttachment {
 
-    @JsonProperty("type")
+    @Getter
+    @Setter
+    @SerializedName("type")
     private String type;
 
-    @JsonProperty("payload")
+    @Getter
+    @Setter
+    @SerializedName("payload")
     private TemplatePayload payload;
-
-    public String getType() {
-        return type;
-    }
-
-    public TemplatePayload getPayload() {
-        return payload;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setPayload(TemplatePayload payload) {
-        this.payload = payload;
-    }
 
     @Override
     public String toString() {
-        return String.format("type: %s, payload: %s", getType(), getPayload());
+        return new StringBuffer()
+            .append("type: " + getType())
+            .append("payload: " + getPayload()).toString();
     }
 }

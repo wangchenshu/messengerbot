@@ -1,7 +1,8 @@
 package me.walter.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -12,41 +13,26 @@ import java.util.List;
 @Accessors(chain=true)
 public class TemplatePayload {
 
+    @Getter
+    @Setter
     @SerializedName("template_type")
     private String templateType;
 
-    @JsonProperty("text")
+    @Getter
+    @Setter
+    @SerializedName("text")
     private String text;
 
-    @JsonProperty("buttons")
+    @Getter
+    @Setter
+    @SerializedName("buttons")
     private List<TemplateButton> buttons;
-
-    public String getTemplateType() {
-        return templateType;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public List<TemplateButton> getButtons() {
-        return buttons;
-    }
-
-    public void setTemplateType(String templateType) {
-        this.templateType = templateType;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public void setButtons(List<TemplateButton> buttons) {
-        this.buttons = buttons;
-    }
 
     @Override
     public String toString() {
-        return String.format("templateType: %s, text: %s, buttons: %s", getTemplateType(), getText(), getButtons());
+        return new StringBuffer()
+            .append("templateType: " + getTemplateType())
+            .append("text: " + getText())
+            .append("buttons: " + getButtons()).toString();
     }
 }

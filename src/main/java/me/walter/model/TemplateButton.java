@@ -1,6 +1,8 @@
 package me.walter.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 
 /**
@@ -9,41 +11,26 @@ import lombok.experimental.Accessors;
 @Accessors(chain=true)
 public class TemplateButton {
 
-    @JsonProperty("type")
+    @Getter
+    @Setter
+    @SerializedName("type")
     private String type;
 
-    @JsonProperty("url")
+    @Getter
+    @Setter
+    @SerializedName("url")
     private String url;
 
-    @JsonProperty("title")
+    @Getter
+    @Setter
+    @SerializedName("title")
     private String title;
-
-    public String getType() {
-        return type;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     @Override
     public String toString() {
-        return String.format("type: %s, url: %s, title: %s", getType(), getUrl(), getTitle());
+        return new StringBuffer()
+            .append("type: " + getType())
+            .append("url: " + getUrl())
+            .append("title: " + getTitle()).toString();
     }
 }

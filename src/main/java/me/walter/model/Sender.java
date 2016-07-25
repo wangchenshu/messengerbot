@@ -1,6 +1,6 @@
 package me.walter.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -11,15 +11,13 @@ import lombok.experimental.Accessors;
 @Accessors(chain=true)
 public class Sender {
 
-    @JsonProperty("id")
+    @Getter
+    @Setter
+    @SerializedName("id")
     private Long id;
-
-    public Long getId() {
-        return id;
-    }
 
     @Override
     public String toString() {
-        return String.format("id: %s", getId());
+        return new StringBuffer().append("id: " + getId()).toString();
     }
 }
