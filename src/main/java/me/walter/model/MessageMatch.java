@@ -25,6 +25,7 @@ public class MessageMatch {
     private static Observable<String> thanksOb = Observable.just("thanks", "thank you", "謝謝");
     private static Observable<String> bmwOb = Observable.just("bmw", "米漿");
     private static Observable<String> benzOb = Observable.just("benz", "賓士");
+    private static Observable<String> mazdaOb = Observable.just("mazda", "馬自達");
     private static Observable<String> carOb = Observable.just("find car", "找車");
 
     private MessageMatch() {
@@ -80,6 +81,10 @@ public class MessageMatch {
 
     public static Observable<Boolean> findBenz(String text) {
         return find(text, benzOb);
+    }
+
+    public static Observable<Boolean> findMazda(String text) {
+        return find(text, mazdaOb);
     }
 
     public static Observable<Boolean> findCar(String text) {

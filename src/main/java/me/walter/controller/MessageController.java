@@ -127,6 +127,7 @@ public class MessageController {
                                     List<QuickReplies> quickReplies = new ArrayList<>(2);
                                     quickReplies.add(new QuickReplies("text", "bmw", "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"));
                                     quickReplies.add(new QuickReplies("text", "benz", "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"));
+                                    quickReplies.add(new QuickReplies("text", "mazda", "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"));
 
                                     sendQuickRepliesMessage("想找什麼車?", quickReplies, recipient, accessToken, service);
                                 });
@@ -144,6 +145,15 @@ public class MessageController {
                                 .subscribe(it -> {
                                     new ImageOperation()
                                         .getAttachmentByImageUrls(MessageData.sellImageLink.get("bmw-1"))
+                                        .subscribe(attachment -> {
+                                            sendAttachmentMessage(attachment.getType(), attachment.getPayload(), recipient, accessToken, service);
+                                        });
+                                });
+
+                            MessageMatch.findMazda(text)
+                                .subscribe(it -> {
+                                    new ImageOperation()
+                                        .getAttachmentByImageUrls(MessageData.sellImageLink.get("mazda-1"))
                                         .subscribe(attachment -> {
                                             sendAttachmentMessage(attachment.getType(), attachment.getPayload(), recipient, accessToken, service);
                                         });

@@ -37,6 +37,12 @@ public abstract class MessageData {
             "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13494986_10205319142292856_2411493770584044249_n.jpg?oh=b81a9fe8ccbf17534c994a092f0cbbf6&oe=582D2885")
         );
 
+        sellImageLink.put("mazda-1", Arrays.asList(
+            "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13442140_10205230120387364_4096170620213646369_n.jpg?oh=2e8f4a2600bc1197e92018d01bd8840c&oe=57E89AEC",
+            "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13260096_10205230119987354_4648330322985784364_n.jpg?oh=7d94e564c5c56c14277a2c819024aa34&oe=581C836D",
+            "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13423779_10205230119587344_4565736651895532685_n.jpg?oh=fc32bea364dfe2edb66e956db970a338&oe=5836DEF7")
+        );
+
         // sendText
         sendText.put("default", "Welcome to h4!");
         sendText.put("h4", "Welcome to h4!");
