@@ -29,7 +29,7 @@ public class Messaging {
     @Getter
     @Setter
     @SerializedName("message")
-    private MessageRes message;
+    private Message message;
 
     @Override
     public String toString() {

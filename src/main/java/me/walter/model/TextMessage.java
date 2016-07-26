@@ -17,9 +17,9 @@ public class TextMessage {
     @Getter
     @Setter
     @SerializedName("message")
-    private TextMessageReq message;
+    private SendMessage message;
 
-    public TextMessage(Recipient recipient, TextMessageReq message) {
+    public TextMessage(Recipient recipient, SendMessage message) {
         this.recipient = recipient;
         this.message = message;
     }

@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Accessors(chain=true)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MessageRes {
+public class Message {
 
     @Getter
     @Setter

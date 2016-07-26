@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.inject.Inject;
 import me.walter.config.PropertiesCache;
-import me.walter.factory.OperationFactory;
 import me.walter.model.*;
 import me.walter.operation.ImageOperation;
 import me.walter.service.WebHookService;
@@ -61,8 +60,8 @@ public class MessageController {
                         userProfile_p = new UserProfile();
 
                         if (messaging.getMessage().getAttachments() != null) {
-                            MessageRes messageRes = messaging.getMessage();
-                            List<Attachment> attachments = messageRes.getAttachments();
+                            Message message = messaging.getMessage();
+                            List<Attachment> attachments = message.getAttachments();
 
                             for (Attachment attachment : attachments) {
                                 if (attachment.getType().equals("image")) {
@@ -150,6 +149,12 @@ public class MessageController {
                             templatePayload.setButtons(templateButtons);
 
                             sendButtonTemplateMessage("template", templatePayload, recipient, accessToken, service);
+
+                            List<QuickReplies> quickReplies = new ArrayList<>(2);
+                            quickReplies.add(new QuickReplies("text", "Red", "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"));
+                            quickReplies.add(new QuickReplies("text", "Green", "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"));
+
+                            sendQuickRepliesMessage("Pick a color:", quickReplies, recipient, accessToken, service);
                         }
                     }
                 }
@@ -162,8 +167,15 @@ public class MessageController {
     }
 
     private void sendTextMessage(String sendText, Recipient recipient, String accessToken, WebHookService service) {
-        TextMessageReq textMessageReq = new TextMessageReq(sendText);
-        TextMessage textMessage = new TextMessage(recipient, textMessageReq);
+        SendMessage sendMessage = new SendMessage(sendText);
+        TextMessage textMessage = new TextMessage(recipient, sendMessage);
+
+        service.sendTextMessage(accessToken, textMessage).subscribe();
+    }
+
+    private void sendQuickRepliesMessage(String sendText, List<QuickReplies> quickReplies, Recipient recipient, String accessToken, WebHookService service) {
+        SendMessage sendMessage = new SendMessage(sendText, quickReplies);
+        TextMessage textMessage = new TextMessage(recipient, sendMessage);
 
         service.sendTextMessage(accessToken, textMessage).subscribe();
     }
