@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14903cb3-7d24-407e-bffc-b2b644bfcc19" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/MessageData.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/MessageData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/MessageMatch.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/MessageMatch.java" />
     </list>
     <ignored path="messengerbot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,10 +65,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MessageController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MessageController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36588922">
+            <state vertical-scroll-proportion="0.0">
               <caret line="154" column="94" selection-start-line="154" selection-start-column="94" selection-end-line="154" selection-end-column="94" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -79,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageData.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MessageData.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/model/MessageData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.67784256">
+              <caret line="36" column="159" selection-start-line="36" selection-start-column="159" selection-end-line="36" selection-end-column="159" />
               <folding />
             </state>
           </provider>
@@ -459,9 +457,9 @@
         <option value="$PROJECT_DIR$/src/main/java/me/walter/model/Messaging.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/walter/model/SendMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/walter/model/QuickReplies.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/walter/model/MessageData.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/walter/model/MessageMatch.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/walter/model/MessageData.java" />
       </list>
     </option>
   </component>
@@ -1700,14 +1698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/model/MessageData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/model/MessageMatch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1721,11 +1711,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36588922">
+        <state vertical-scroll-proportion="0.0">
           <caret line="154" column="94" selection-start-line="154" selection-start-column="94" selection-end-line="154" selection-end-column="94" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/model/MessageData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.67784256">
+          <caret line="36" column="159" selection-start-line="36" selection-start-column="159" selection-end-line="36" selection-end-column="159" />
+          <folding />
         </state>
       </provider>
     </entry>

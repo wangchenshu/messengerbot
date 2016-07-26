@@ -32,9 +32,9 @@ public abstract class MessageData {
         );
 
         sellImageLink.put("benz-1", Arrays.asList(
-            "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13627026_10205350772083581_6362775196682964547_n.jpg?oh=9a62b7eb4672e1378e217c14beeb9c9a&oe=581AE208",
-            "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13645221_10205350771563568_8968602273122287165_n.jpg?oh=ff4e41690c907f1a486a1b036f509374&oe=582A3B34",
-            "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13567151_10205350770843550_801888649938240628_n.jpg?oh=f154ec4a0925e5ad269d3e96605b0ad1&oe=58182B54")
+            "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13566974_10205319142012849_6806131105853194223_n.jpg?oh=f425bbbf873efa080b547ec4f2c3156e&oe=582C54CC",
+            "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13494896_10205319141852845_3821363583353147951_n.jpg?oh=7c075d9802b1f888ba6d64fe5bf1e3f4&oe=581DF083",
+            "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13494986_10205319142292856_2411493770584044249_n.jpg?oh=b81a9fe8ccbf17534c994a092f0cbbf6&oe=582D2885")
         );
 
         // sendText
