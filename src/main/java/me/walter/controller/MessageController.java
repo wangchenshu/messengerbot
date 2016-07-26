@@ -122,6 +122,24 @@ public class MessageController {
                                     sendAttachmentMessage(attachment.getType(), attachment.getPayload(), recipient, accessToken, service);
                                 });
 
+                            MessageMatch.findCar(text)
+                                .subscribe(it -> {
+                                    List<QuickReplies> quickReplies = new ArrayList<>(2);
+                                    quickReplies.add(new QuickReplies("text", "bmw", "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"));
+                                    quickReplies.add(new QuickReplies("text", "benz", "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"));
+
+                                    sendQuickRepliesMessage("Which car:", quickReplies, recipient, accessToken, service);
+                                });
+
+                            MessageMatch.findBenz(text)
+                                .subscribe(it -> {
+                                    new ImageOperation()
+                                        .getAttachmentByImageUrls(MessageData.sellImageLink.get("benz-1"))
+                                        .subscribe(attachment -> {
+                                            sendAttachmentMessage(attachment.getType(), attachment.getPayload(), recipient, accessToken, service);
+                                        });
+                                });
+
                             MessageMatch.findBmw(text)
                                 .subscribe(it -> {
                                     new ImageOperation()
@@ -141,6 +159,7 @@ public class MessageController {
                                     )
                                 );
 
+                            /*
                             TemplatePayload templatePayload = new TemplatePayload();
                             List<TemplateButton> templateButtons = createTemplateButton();
 
@@ -149,12 +168,7 @@ public class MessageController {
                             templatePayload.setButtons(templateButtons);
 
                             sendButtonTemplateMessage("template", templatePayload, recipient, accessToken, service);
-
-                            List<QuickReplies> quickReplies = new ArrayList<>(2);
-                            quickReplies.add(new QuickReplies("text", "Red", "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"));
-                            quickReplies.add(new QuickReplies("text", "Green", "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"));
-
-                            sendQuickRepliesMessage("Pick a color:", quickReplies, recipient, accessToken, service);
+                            */
                         }
                     }
                 }

@@ -14,9 +14,9 @@ import java.util.stream.Stream;
 public class MessageMatch {
     private static Observable<String> regOb = Observable.just("register", "報到", "簽到");
     private static Observable<String> baoOb = Observable.just("baobao", "抱抱");
-    private static Observable<String> contactOb = Observable.just("contact", "找", "聯絡", "連絡");
+    private static Observable<String> contactOb = Observable.just("contact", "聯絡", "連絡");
     private static Observable<String> beginOb = Observable.just("由來", "beginning", "開始");
-    private static Observable<String> goOb = Observable.just("go", "to", "去", "走");
+    private static Observable<String> goOb = Observable.just("go", "去", "走");
     private static Observable<String> doOb = Observable.just("do", "做");
     private static Observable<String> whatOb = Observable.just("這啥", "這是什");
     private static Observable<String> fbOb = Observable.just("fb", "臉書");
@@ -24,6 +24,8 @@ public class MessageMatch {
     private static Observable<String> meetupOb = Observable.just("meetup");
     private static Observable<String> thanksOb = Observable.just("thanks", "thank you", "謝謝");
     private static Observable<String> bmwOb = Observable.just("bmw", "米漿");
+    private static Observable<String> benzOb = Observable.just("benz", "賓士");
+    private static Observable<String> carOb = Observable.just("find car", "找車");
 
     private MessageMatch() {
     }
@@ -74,6 +76,14 @@ public class MessageMatch {
 
     public static Observable<Boolean> findBmw(String text) {
         return find(text, bmwOb);
+    }
+
+    public static Observable<Boolean> findBenz(String text) {
+        return find(text, benzOb);
+    }
+
+    public static Observable<Boolean> findCar(String text) {
+        return find(text, carOb);
     }
 
     private static Observable<Boolean> find(String text, Observable<String> ob) {
