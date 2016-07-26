@@ -1,7 +1,6 @@
 package me.walter.operation;
 
 import me.walter.model.Attachment;
-import me.walter.model.MessageData;
 import me.walter.model.Payload;
 import rx.Observable;
 

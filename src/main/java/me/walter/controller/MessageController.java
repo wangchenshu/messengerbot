@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.inject.Inject;
 import me.walter.config.PropertiesCache;
+import me.walter.factory.OperationFactory;
 import me.walter.model.*;
 import me.walter.operation.ImageOperation;
 import me.walter.service.WebHookService;
@@ -25,16 +26,16 @@ public class MessageController {
     private UserProfile userProfile_p;
     private static final int OK = 200;
 
-    //@Inject
-    //PropertiesCache propertiesCache;
+    @Inject
+    PropertiesCache propertiesCache;
 
     public MessageController() {
     }
 
     public Integer process(Request req) {
         ObjectMapper mapper = new ObjectMapper();
-        String baseUrl = PropertiesCache.getInstance().getProperty("baseUrl");
-        String accessToken = PropertiesCache.getInstance().getProperty("accessToken");
+        String baseUrl = propertiesCache.getProperty("baseUrl");
+        String accessToken = propertiesCache.getProperty("accessToken");
 
         Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(baseUrl)
@@ -76,66 +77,70 @@ public class MessageController {
                             }
                         } else {
                             String text = messaging.getMessage().getText();
-                            MessageMatch messageMatch = new MessageMatch();
 
                             getUserProfile(senderId, accessToken, service).subscribe(userProfile -> userProfile_p = userProfile);
                             String userName = userProfile_p.getFirstName() + " " + userProfile_p.getLastName();
 
-                            if (messageMatch.findContact(text)) {
-                                sendTextMessage(MessageData.sendText.get("contact-us"), recipient, accessToken, service);
-                            }
+                            MessageMatch.findContact(text)
+                                .subscribe(it -> sendTextMessage(
+                                    MessageData.sendText.get("contact-us"), recipient, accessToken, service));
 
-                            if (messageMatch.findGo(text)) {
-                                sendTextMessage(MessageData.sendText.get("h4-place"), recipient, accessToken, service);
-                            }
+                            MessageMatch.findGo(text)
+                                .subscribe(it -> sendTextMessage(
+                                    MessageData.sendText.get("h4-place"), recipient, accessToken, service));
 
-                            if (messageMatch.findDo(text)) {
-                                sendTextMessage(MessageData.sendText.get("h4-people-do"), recipient, accessToken, service);
-                            }
+                            MessageMatch.findDo(text)
+                                .subscribe(it -> sendTextMessage(
+                                    MessageData.sendText.get("h4-people-do"), recipient, accessToken, service));
 
-                            if (messageMatch.findBegin(text)) {
-                                sendTextMessage(MessageData.sendText.get("h4-beginning"), recipient, accessToken, service);
-                            }
+                            MessageMatch.findBegin(text)
+                                .subscribe(it -> sendTextMessage(
+                                    MessageData.sendText.get("h4-beginning"), recipient, accessToken, service));
 
-                            if (messageMatch.findWhat(text)) {
-                                sendTextMessage(MessageData.sendText.get("h4-helper"), recipient, accessToken, service);
-                            }
+                            MessageMatch.findWhat(text)
+                                .subscribe(it -> sendTextMessage(
+                                    MessageData.sendText.get("h4-helper"), recipient, accessToken, service));
 
-                            if (messageMatch.findFb(text)) {
-                                sendTextMessage(MessageData.h4Fb, recipient, accessToken, service);
-                            }
+                            MessageMatch.findFb(text)
+                                .subscribe(it -> sendTextMessage(
+                                    MessageData.h4Fb, recipient, accessToken, service));
 
-                            if (messageMatch.findMeetup(text)) {
-                                sendTextMessage(MessageData.h4Meetup, recipient, accessToken, service);
-                            }
+                            MessageMatch.findMeetup(text)
+                                .subscribe(it -> sendTextMessage(
+                                    MessageData.h4Meetup, recipient, accessToken, service));
 
-                            if (messageMatch.findWeb(text)) {
-                                sendTextMessage(MessageData.h4Web, recipient, accessToken, service);
-                            }
+                            MessageMatch.findWeb(text)
+                                .subscribe(it -> sendTextMessage(
+                                    MessageData.h4Web, recipient, accessToken, service));
 
-                            if (messageMatch.findThanks(text)) {
-                                sendTextMessage(MessageData.urwelcome, recipient, accessToken, service);
-                            }
+                            MessageMatch.findThanks(text)
+                                .subscribe(it -> sendTextMessage(
+                                    MessageData.urwelcome, recipient, accessToken, service));
 
-                            if (messageMatch.findBao(text)) {
-                                Attachment attachment = new ImageOperation().createAttachment(MessageData.imageLink.get("baobao"));
-                                sendAttachmentMessage(attachment.getType(), attachment.getPayload(), recipient, accessToken, service);
-                            }
+                            MessageMatch.findBao(text)
+                                .subscribe(it -> {
+                                    Attachment attachment = new ImageOperation().createAttachment(MessageData.imageLink.get("baobao"));
+                                    sendAttachmentMessage(attachment.getType(), attachment.getPayload(), recipient, accessToken, service);
+                                });
 
-                            if (messageMatch.findBmw(text)) {
-                                Observable<Attachment> attachmentObservable = new ImageOperation()
-                                    .getAttachmentByImageUrls(MessageData.sellImageLink.get("bmw-1"));
-                                sendAttachmentsMessage(attachmentObservable, recipient, accessToken, service);
-                            }
+                            MessageMatch.findBmw(text)
+                                .subscribe(it -> {
+                                    new ImageOperation()
+                                        .getAttachmentByImageUrls(MessageData.sellImageLink.get("bmw-1"))
+                                        .subscribe(attachment -> {
+                                            sendAttachmentMessage(attachment.getType(), attachment.getPayload(), recipient, accessToken, service);
+                                        });
+                                });
 
-                            if (messageMatch.findReg(text)) {
-                                sendTextMessage(
-                                    userName + " " + MessageData.sendText.get("register"),
-                                    recipient,
-                                    accessToken,
-                                    service
+                            MessageMatch.findReg(text)
+                                .subscribe(it ->
+                                    sendTextMessage(
+                                        userName + " " + MessageData.sendText.get("register"),
+                                        recipient,
+                                        accessToken,
+                                        service
+                                    )
                                 );
-                            }
 
                             TemplatePayload templatePayload = new TemplatePayload();
                             List<TemplateButton> templateButtons = createTemplateButton();
@@ -172,16 +177,6 @@ public class MessageController {
         AttachmentMessage attachmentMessage = new AttachmentMessage(recipient, attachmentMessageReq);
 
         service.sendAttachmentMessage(accessToken, attachmentMessage).subscribe();
-    }
-
-    private void sendAttachmentsMessage(Observable<Attachment> attachmentObservable, Recipient recipient, String accessToken, WebHookService service) {
-        attachmentObservable.subscribe(attachment -> {
-            AttachmentMessageReq attachmentMessageReq = new AttachmentMessageReq(attachment);
-            AttachmentMessage attachmentMessage = new AttachmentMessage(recipient, attachmentMessageReq);
-
-            service.sendAttachmentMessage(accessToken, attachmentMessage).subscribe();
-        });
-
     }
 
     private void sendButtonTemplateMessage(String type, TemplatePayload payload, Recipient recipient, String accessToken, WebHookService service) {

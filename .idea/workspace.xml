@@ -2,66 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14903cb3-7d24-407e-bffc-b2b644bfcc19" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__aopalliance_aopalliance_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_guava_guava_19_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_inject_guice_4_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_converter_jackson_2_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_inject_javax_inject_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/walter/config/AbstractPropertiesCache.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/walter/config/PropertiesCache.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/walter/di/ConfigModule.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/walter/operation/ImageOperation.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_guava_guava_18_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/PropertiesCache$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/PropertiesCache$LazyHolder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/PropertiesCache.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/PropertiesCache.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_annotations_2_6_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_annotations_2_7_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_core_2_6_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_core_2_7_2.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_databind_2_6_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_databind_2_7_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/walter/di/OperationModule.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/walter/factory/OperationFactory.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/config/AbstractPropertiesCache.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/walter/config/AbstractPropertiesCache.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/App.class" afterPath="$PROJECT_DIR$/build/classes/main/App.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/controller/MessageController.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/controller/MessageController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/Attachment.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/Attachment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/AttachmentMessage.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/AttachmentMessage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/AttachmentMessageReq.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/AttachmentMessageReq.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/ButtonTemplateMessage.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/ButtonTemplateMessage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/ButtonTemplateMessageReq.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/ButtonTemplateMessageReq.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/Entry.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/Entry.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/MessageRes.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/MessageRes.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/Messaging.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/Messaging.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/Payload.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/Payload.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/Recipient.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/Recipient.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/Sender.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/Sender.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/TemplateAttachment.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/TemplateAttachment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/TemplateButton.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/TemplateButton.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/TemplatePayload.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/TemplatePayload.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/TextMessage.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/TextMessage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/TextMessageReq.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/TextMessageReq.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/UserProfile.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/UserProfile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/WebHookRequest.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/WebHookRequest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/model/MessageMatch.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/model/MessageMatch.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/operation/ImageOperation.class" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/operation/ImageOperation.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messengerbot.iml" afterPath="$PROJECT_DIR$/messengerbot.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/App.java" afterPath="$PROJECT_DIR$/src/main/java/App.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/Attachment.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/Attachment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/AttachmentMessage.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/AttachmentMessage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/AttachmentMessageReq.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/AttachmentMessageReq.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/ButtonTemplateMessage.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/ButtonTemplateMessage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/ButtonTemplateMessageReq.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/ButtonTemplateMessageReq.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/Entry.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/Entry.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/MessageRes.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/MessageRes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/Messaging.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/Messaging.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/Payload.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/Payload.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/Recipient.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/Recipient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/Sender.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/Sender.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/TemplateAttachment.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/TemplateAttachment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/TemplateButton.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/TemplateButton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/TemplatePayload.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/TemplatePayload.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/TextMessage.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/TextMessage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/TextMessageReq.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/TextMessageReq.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/UserProfile.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/UserProfile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/WebHookRequest.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/WebHookRequest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/MessageMatch.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/MessageMatch.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/operation/ImageOperation.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/operation/ImageOperation.java" />
     </list>
     <ignored path="messengerbot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -128,20 +81,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+              <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.444445">
-              <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -150,7 +93,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/operation/ImageOperation.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+              <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -158,47 +101,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PropertiesCache.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/config/PropertiesCache.java">
+      <file leaf-file-name="MessageMatch.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/model/MessageMatch.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
+              <caret line="21" column="73" selection-start-line="21" selection-start-column="73" selection-end-line="21" selection-end-column="73" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#932#933#0" expanded="true" />
-                <element signature="e#982#983#0" expanded="true" />
+                <element signature="e#1332#1333#0" expanded="true" />
+                <element signature="e#1372#1373#0" expanded="true" />
+                <element signature="e#1434#1435#0" expanded="true" />
+                <element signature="e#1474#1475#0" expanded="true" />
+                <element signature="e#1540#1541#0" expanded="true" />
+                <element signature="e#1584#1585#0" expanded="true" />
+                <element signature="e#1648#1649#0" expanded="true" />
+                <element signature="e#1690#1691#0" expanded="true" />
+                <element signature="e#1751#1752#0" expanded="true" />
+                <element signature="e#1790#1791#0" expanded="true" />
+                <element signature="e#1851#1852#0" expanded="true" />
+                <element signature="e#1890#1891#0" expanded="true" />
+                <element signature="e#1953#1954#0" expanded="true" />
+                <element signature="e#1994#1995#0" expanded="true" />
+                <element signature="e#2055#2056#0" expanded="true" />
+                <element signature="e#2094#2095#0" expanded="true" />
+                <element signature="e#2156#2157#0" expanded="true" />
+                <element signature="e#2196#2197#0" expanded="true" />
+                <element signature="e#2261#2262#0" expanded="true" />
+                <element signature="e#2304#2305#0" expanded="true" />
+                <element signature="e#2369#2370#0" expanded="true" />
+                <element signature="e#2412#2413#0" expanded="true" />
+                <element signature="e#2474#2475#0" expanded="true" />
+                <element signature="e#2514#2515#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Attachment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/model/Attachment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24052478">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractPropertiesCache.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/config/AbstractPropertiesCache.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="62" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="62" />
+            <state vertical-scroll-proportion="0.36588922">
+              <caret line="19" column="31" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="31" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -207,15 +149,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConfigModule.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/di/ConfigModule.java">
+      <file leaf-file-name="TemplateButton.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/model/TemplateButton.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="64" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="64" />
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#319#320#0" expanded="true" />
-                <element signature="e#390#391#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -549,7 +489,6 @@
         <option value="$PROJECT_DIR$/src/main/java/me/walter/filter/CheckMessageType.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/walter/model/Attachments.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/walter/service/WebHookService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/walter/model/MessageMatch.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/walter/model/MessageData.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/walter/model/Attachment.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/walter/model/AttachmentMessageReq.java" />
@@ -569,13 +508,17 @@
         <option value="$PROJECT_DIR$/src/main/java/me/walter/model/TemplatePayload.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/walter/model/AttachmentMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/walter/model/TextMessage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/walter/operation/ImageOperation.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/me/walter/config/PropertiesCache.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/walter/di/ConfigModule.java" />
-        <option value="$PROJECT_DIR$/src/main/java/App.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/walter/config/AbstractPropertiesCache.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/walter/di/ConfigModule.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/walter/model/MessageMatch.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/walter/operation/impl/ImageOperation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/walter/operation/ImageOperation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/walter/di/OperationModule.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/walter/factory/OperationFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/App.java" />
       </list>
     </option>
   </component>
@@ -1343,7 +1286,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="102" />
+      <option name="time" value="103" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1352,16 +1295,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1383,8 +1316,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="74" column="26" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="26" />
           <folding>
-            <element signature="e#2065#2066#0" expanded="true" />
-            <element signature="e#2105#2106#0" expanded="true" />
+            <element signature="e#2474#2475#0" expanded="true" />
+            <element signature="e#2514#2515#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1452,8 +1385,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2065#2066#0" expanded="true" />
-            <element signature="e#2105#2106#0" expanded="true" />
+            <element signature="e#2474#2475#0" expanded="true" />
+            <element signature="e#2514#2515#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1617,17 +1550,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/model/MessageMatch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="26" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="26" />
-          <folding>
-            <element signature="e#2065#2066#0" expanded="true" />
-            <element signature="e#2105#2106#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/model/MessageRes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1669,16 +1591,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/model/Sender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24052478">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/model/TemplateButton.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24052478">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
@@ -1756,39 +1668,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.444445">
-          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="62" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="62" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/di/ConfigModule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="64" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.196793">
+          <caret line="9" column="68" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#319#320#0" expanded="true" />
@@ -1797,32 +1680,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/operation/ImageOperation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/factory/OperationFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/config/AbstractPropertiesCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.17492712">
+          <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/config/PropertiesCache.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/di/OperationModule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.26239067">
+          <caret line="12" column="62" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#932#933#0" expanded="true" />
-            <element signature="e#982#983#0" expanded="true" />
+            <element signature="e#298#299#0" expanded="true" />
+            <element signature="e#367#368#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1832,6 +1705,100 @@
         <state vertical-scroll-proportion="0.24052478">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/model/TemplateButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/config/PropertiesCache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32215744">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#932#933#0" expanded="true" />
+            <element signature="e#982#983#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/model/MessageMatch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="73" selection-start-line="21" selection-start-column="73" selection-end-line="21" selection-end-column="73" />
+          <folding>
+            <element signature="e#1332#1333#0" expanded="true" />
+            <element signature="e#1372#1373#0" expanded="true" />
+            <element signature="e#1434#1435#0" expanded="true" />
+            <element signature="e#1474#1475#0" expanded="true" />
+            <element signature="e#1540#1541#0" expanded="true" />
+            <element signature="e#1584#1585#0" expanded="true" />
+            <element signature="e#1648#1649#0" expanded="true" />
+            <element signature="e#1690#1691#0" expanded="true" />
+            <element signature="e#1751#1752#0" expanded="true" />
+            <element signature="e#1790#1791#0" expanded="true" />
+            <element signature="e#1851#1852#0" expanded="true" />
+            <element signature="e#1890#1891#0" expanded="true" />
+            <element signature="e#1953#1954#0" expanded="true" />
+            <element signature="e#1994#1995#0" expanded="true" />
+            <element signature="e#2055#2056#0" expanded="true" />
+            <element signature="e#2094#2095#0" expanded="true" />
+            <element signature="e#2156#2157#0" expanded="true" />
+            <element signature="e#2196#2197#0" expanded="true" />
+            <element signature="e#2261#2262#0" expanded="true" />
+            <element signature="e#2304#2305#0" expanded="true" />
+            <element signature="e#2369#2370#0" expanded="true" />
+            <element signature="e#2412#2413#0" expanded="true" />
+            <element signature="e#2474#2475#0" expanded="true" />
+            <element signature="e#2514#2515#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/operation/ImageOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59180576">
+          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36588922">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="31" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
