@@ -128,7 +128,7 @@ public class MessageController {
                                     quickReplies.add(new QuickReplies("text", "bmw", "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"));
                                     quickReplies.add(new QuickReplies("text", "benz", "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"));
 
-                                    sendQuickRepliesMessage("Which car:", quickReplies, recipient, accessToken, service);
+                                    sendQuickRepliesMessage("想找什麼車?", quickReplies, recipient, accessToken, service);
                                 });
 
                             MessageMatch.findBenz(text)

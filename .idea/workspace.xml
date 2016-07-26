@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14903cb3-7d24-407e-bffc-b2b644bfcc19" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/model/MessageData.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/model/MessageData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java" afterPath="$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java" />
     </list>
     <ignored path="messengerbot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,11 +65,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MessageController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MessageController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="154" column="94" selection-start-line="154" selection-start-column="94" selection-end-line="154" selection-end-column="94" />
+            <state vertical-scroll-proportion="0.606414">
+              <caret line="130" column="66" selection-start-line="130" selection-start-column="66" selection-end-line="130" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageData.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MessageData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/model/MessageData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67784256">
+            <state vertical-scroll-proportion="0.0">
               <caret line="36" column="159" selection-start-line="36" selection-start-column="159" selection-end-line="36" selection-end-column="159" />
               <folding />
             </state>
@@ -458,8 +458,8 @@
         <option value="$PROJECT_DIR$/src/main/java/me/walter/model/SendMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/walter/model/QuickReplies.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/walter/model/MessageMatch.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/walter/model/MessageData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java" />
       </list>
     </option>
   </component>
@@ -1709,21 +1709,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/model/MessageData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="154" column="94" selection-start-line="154" selection-start-column="94" selection-end-line="154" selection-end-column="94" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="36" column="159" selection-start-line="36" selection-start-column="159" selection-end-line="36" selection-end-column="159" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/model/MessageData.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/walter/controller/MessageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67784256">
-          <caret line="36" column="159" selection-start-line="36" selection-start-column="159" selection-end-line="36" selection-end-column="159" />
-          <folding />
+        <state vertical-scroll-proportion="0.606414">
+          <caret line="130" column="66" selection-start-line="130" selection-start-column="66" selection-end-line="130" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
