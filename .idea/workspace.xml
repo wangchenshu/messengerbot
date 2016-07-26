@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14903cb3-7d24-407e-bffc-b2b644bfcc19" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/di/OperationModule.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/main/me/walter/factory/OperationFactory.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/walter/di/OperationModule.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/walter/factory/OperationFactory.java" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/me/walter/config/AbstractPropertiesCache.class" afterPath="" />
