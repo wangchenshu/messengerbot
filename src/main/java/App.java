@@ -3,10 +3,12 @@
  */
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.google.inject.util.Modules;
 import me.walter.config.PropertiesCache;
 import me.walter.controller.MessageController;
 import me.walter.di.ConfigModule;
-import me.walter.operation.ImageOperation;
+import me.walter.di.OperationModule;
+import me.walter.di.ServiceModule;
 import spark.Response;
 
 import static spark.Spark.*;
@@ -18,7 +20,9 @@ public class App {
         port(3000);
 
         Injector configInjector = Guice.createInjector(new ConfigModule());
-        MessageController messageController = configInjector.getInstance(MessageController.class);
+        PropertiesCache propertiesCache = configInjector.getInstance(PropertiesCache.class);
+        Injector myInjector = Guice.createInjector(Modules.combine(new ConfigModule(), new OperationModule(), new ServiceModule(propertiesCache)));
+        MessageController messageController = myInjector.getInstance(MessageController.class);
 
         get("/webhook", (req, res) -> {
             String verifyToken = PropertiesCache.getInstance().getProperty("verifyToken2");

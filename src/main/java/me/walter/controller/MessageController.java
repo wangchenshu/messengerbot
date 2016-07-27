@@ -7,9 +7,6 @@ import me.walter.config.PropertiesCache;
 import me.walter.model.*;
 import me.walter.operation.ImageOperation;
 import me.walter.service.WebHookService;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
 import spark.Request;
 
@@ -22,26 +19,24 @@ import static java.lang.System.out;
  * Created by chenshuwang on 2016/7/22.
  */
 public class MessageController {
-    private UserProfile userProfile_p;
+
     private static final int OK = 200;
 
     @Inject
     PropertiesCache propertiesCache;
+
+    @Inject
+    ImageOperation imageOperation;
+
+    @Inject
+    WebHookService service;
 
     public MessageController() {
     }
 
     public Integer process(Request req) {
         ObjectMapper mapper = new ObjectMapper();
-        String baseUrl = propertiesCache.getProperty("baseUrl");
         String accessToken = propertiesCache.getProperty("accessToken");
-
-        Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-            .build();
-        WebHookService service = retrofit.create(WebHookService.class);
 
         try {
             JsonNode rootNode = mapper.readTree(req.body());
@@ -57,7 +52,7 @@ public class MessageController {
                         Long senderId = messaging.getSender().getId();
                         Recipient recipient = new Recipient();
                         recipient.setId(senderId);
-                        userProfile_p = new UserProfile();
+                        final UserProfile[] userProfile_p = new UserProfile[1];
 
                         if (messaging.getMessage().getAttachments() != null) {
                             Message message = messaging.getMessage();
@@ -77,8 +72,8 @@ public class MessageController {
                         } else {
                             String text = messaging.getMessage().getText();
 
-                            getUserProfile(senderId, accessToken, service).subscribe(userProfile -> userProfile_p = userProfile);
-                            String userName = userProfile_p.getFirstName() + " " + userProfile_p.getLastName();
+                            getUserProfile(senderId, accessToken, service).subscribe(userProfile -> userProfile_p[0] = userProfile);
+                            String userName = userProfile_p[0].getFirstName() + " " + userProfile_p[0].getLastName();
 
                             MessageMatch.findContact(text)
                                 .subscribe(it -> sendTextMessage(
@@ -118,23 +113,23 @@ public class MessageController {
 
                             MessageMatch.findBao(text)
                                 .subscribe(it -> {
-                                    Attachment attachment = new ImageOperation().createAttachment(MessageData.imageLink.get("baobao"));
+                                    Attachment attachment = imageOperation.createAttachment(MessageData.imageLink.get("baobao"));
                                     sendAttachmentMessage(attachment.getType(), attachment.getPayload(), recipient, accessToken, service);
                                 });
 
                             MessageMatch.findCar(text)
                                 .subscribe(it -> {
                                     List<QuickReplies> quickReplies = new ArrayList<>(2);
-                                    quickReplies.add(new QuickReplies("text", "bmw", "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"));
-                                    quickReplies.add(new QuickReplies("text", "benz", "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"));
-                                    quickReplies.add(new QuickReplies("text", "mazda", "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"));
+                                    quickReplies.add(new QuickReplies("text", "bmw", "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_BMW"));
+                                    quickReplies.add(new QuickReplies("text", "benz", "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_BENZ"));
+                                    quickReplies.add(new QuickReplies("text", "mazda", "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_MAZDA"));
 
                                     sendQuickRepliesMessage("想找什麼車?", quickReplies, recipient, accessToken, service);
                                 });
 
                             MessageMatch.findBenz(text)
                                 .subscribe(it -> {
-                                    new ImageOperation()
+                                    imageOperation
                                         .getAttachmentByImageUrls(MessageData.sellImageLink.get("benz-1"))
                                         .subscribe(attachment -> {
                                             sendAttachmentMessage(attachment.getType(), attachment.getPayload(), recipient, accessToken, service);
@@ -143,7 +138,7 @@ public class MessageController {
 
                             MessageMatch.findBmw(text)
                                 .subscribe(it -> {
-                                    new ImageOperation()
+                                    imageOperation
                                         .getAttachmentByImageUrls(MessageData.sellImageLink.get("bmw-1"))
                                         .subscribe(attachment -> {
                                             sendAttachmentMessage(attachment.getType(), attachment.getPayload(), recipient, accessToken, service);
@@ -152,7 +147,7 @@ public class MessageController {
 
                             MessageMatch.findMazda(text)
                                 .subscribe(it -> {
-                                    new ImageOperation()
+                                    imageOperation
                                         .getAttachmentByImageUrls(MessageData.sellImageLink.get("mazda-1"))
                                         .subscribe(attachment -> {
                                             sendAttachmentMessage(attachment.getType(), attachment.getPayload(), recipient, accessToken, service);
