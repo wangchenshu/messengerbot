@@ -23,6 +23,9 @@ public abstract class MessageData {
         imageLink.put("baobao", "https://firebasestorage.googleapis.com/v0/b/walter-bot-a2142.appspot.com/o/line-bot%2Fimage%2Fother%2Fiyiy.jpg?alt=media&token=1d0dfd87-d61a-48d5-8ea0-0bd86c9b9458");
         imageLink.put("fb-good", "https://firebasestorage.googleapis.com/v0/b/walter-bot-a2142.appspot.com/o/line-bot%2Fimage%2Fother%2Ffb-good.png?alt=media&token=52fde993-26a0-4872-bbc7-eb78933cf470");
 
+        imageLink.put("true", "http://www.chinamgt.com/images/article/02A15SU7.jpg");
+        imageLink.put("false", "http://s8.z9x9.com/wp-content/uploads/2016/07/9C44B1EAC2.jpg");
+
         sellImageLink.put("bmw-1", Arrays.asList(
             "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13769403_10205405842380304_8743949122007861785_n.jpg?oh=0510dede4eb9bb81ee816994d84c81c1&oe=58336210",
             "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13718792_10205405842140298_5820858600731320831_n.jpg?oh=c6563c74d7aedb19421e8d4aed77f724&oe=58303E51",
@@ -84,5 +87,7 @@ public abstract class MessageData {
         sendText.put("good-d-ya", "好的呀");
         sendText.put("iyiy", "搖搖照騙");
         sendText.put("aa", "@@");
+        sendText.put("professional", "你好專業，難道是自已人？");
+        sendText.put("other", "假的，都是假的！");
     }
 }

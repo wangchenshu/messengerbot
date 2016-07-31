@@ -1,12 +1,6 @@
 package me.walter.model;
 
 import rx.Observable;
-import rx.Observer;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Stream;
 
 /**
  * Created by chenshuwang on 2016/7/23.
@@ -18,6 +12,7 @@ public class MessageMatch {
     private static Observable<String> beginOb = Observable.just("由來", "beginning", "開始");
     private static Observable<String> goOb = Observable.just("go", "去", "走");
     private static Observable<String> doOb = Observable.just("do", "做");
+    private static Observable<String> h4RealDoOb = Observable.just("閒聊");
     private static Observable<String> whatOb = Observable.just("這啥", "這是什");
     private static Observable<String> fbOb = Observable.just("fb", "臉書");
     private static Observable<String> webOb = Observable.just("web", "網站");
@@ -91,7 +86,15 @@ public class MessageMatch {
         return find(text, carOb);
     }
 
+    public static Observable<Boolean> findH4RealDoOb(String text) {
+        return findWithoutFilter(text, h4RealDoOb);
+    }
+
     private static Observable<Boolean> find(String text, Observable<String> ob) {
-        return ob.map(s -> text.contains(s)).filter(it -> it == true);
+        return ob.map(s -> text.contains(s)).filter(it -> it == true).take(1);
+    }
+
+    private static Observable<Boolean> findWithoutFilter(String text, Observable<String> ob) {
+        return ob.map(s -> text.contains(s));
     }
 }

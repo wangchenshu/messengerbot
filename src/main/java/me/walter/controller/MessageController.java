@@ -75,6 +75,19 @@ public class MessageController {
                             getUserProfile(senderId, accessToken, service).subscribe(userProfile -> userProfile_p[0] = userProfile);
                             String userName = userProfile_p[0].getFirstName() + " " + userProfile_p[0].getLastName();
 
+                            /*
+                            MessageMatch.findH4RealDoOb(text)
+                                .subscribe(it -> {
+                                    if (it == true) {
+                                        Attachment attachment = imageOperation.createAttachment(MessageData.imageLink.get("true"));
+                                        sendAttachmentMessage(attachment.getType(), attachment.getPayload(), recipient, accessToken, service);
+                                    } else {
+                                        Attachment attachment = imageOperation.createAttachment(MessageData.imageLink.get("false"));
+                                        sendAttachmentMessage(attachment.getType(), attachment.getPayload(), recipient, accessToken, service);
+                                    }
+                                });
+                            */
+
                             MessageMatch.findContact(text)
                                 .subscribe(it -> sendTextMessage(
                                     MessageData.sendText.get("contact-us"), recipient, accessToken, service));
@@ -163,7 +176,6 @@ public class MessageController {
                                         service
                                     )
                                 );
-
                             /*
                             TemplatePayload templatePayload = new TemplatePayload();
                             List<TemplateButton> templateButtons = createTemplateButton();
